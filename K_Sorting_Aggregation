@@ -1,0 +1,32 @@
+import pandas as pd
+
+data = {
+    "name":["Arun","Tarun","Cam"],
+    "age":[21,10,13],
+    "salary":[12000,30000,16000]
+}
+
+df = pd.DataFrame(data)
+
+print('Before Sorting : ')
+print(df)
+
+print('\n')
+
+print('After Sorting : ')
+df.sort_values(by="age",ascending=False,inplace=True)
+print(df)
+
+
+# Aggregation
+
+data1 = {
+    "name":["Arun","Tarun","Cam","Tim","Reena"],
+    "age":[21,10,21,10,30],
+    "salary":[12000,30000,16000,32000,45000]
+}
+
+df1 = pd.DataFrame(data1)
+
+group_by = df1.groupby("age")["salary"].sum()
+print(group_by)
